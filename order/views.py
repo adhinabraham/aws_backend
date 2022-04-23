@@ -34,7 +34,7 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 from xhtml2pdf import pisa
 import os
-from easy_pdf.views import PDFTemplateResponseMixin,PDFTemplateView
+
 
 
 # Create your views here.
@@ -382,17 +382,7 @@ class pdfexport (APIView):
         return FileResponse(buf,as_attachment=True,filename='venue.pdf')
 
 
-class pdf(PDFTemplateView):
-    def get (self,request):
-        assets=Order.objects.all()
-        
-        print("pdfffffffffffffffffuck")
-        return super().get_context_data(
-          pagesize='A4',
-          title='Assets',
-          
-          
-        )
+
 
 # class execl(APIView):
 #     def get(self,request):
